@@ -31,7 +31,9 @@ function makeResponsive() {
 
         //read in data using d3 from csv file
 
-        d3.csv("censusdata.csv").then(function(data) {
+       // d3.csv("censusdata.csv").then(function(data) {
+        d3.csv("censusdata.csv", function(err, data) {
+                if (err) throw err;    
             
             //ensure values from data are read as numbers
             data.forEach(function(data) {
@@ -107,7 +109,7 @@ function makeResponsive() {
 
 
     }
-    makeResponsive();
+    
 
     d3.select(window).on("resize", makeResponsive);
 
